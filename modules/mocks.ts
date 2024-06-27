@@ -1,4 +1,4 @@
-import { ZuploContext, ZuploRequest, HttpProblems } from "@zuplo/runtime";
+import { HttpProblems, ZuploContext, ZuploRequest } from "@zuplo/runtime";
 
 interface Document {
   id: string;
@@ -92,7 +92,7 @@ export async function listFoldersHandler(
   }
 
   return {
-    data: org.folders.map((f) => ({ id: f.id, label: f.label })),
+    data: org.folders.map((f) => ({ id: f.id, label: f.label, createdOn: f.createdOn })),
   };
 }
 
@@ -110,7 +110,7 @@ export async function getFolderHandler(
     return HttpProblems.notFound(request, context);
   }
 
-  return { id: folder.id, label: folder.label };
+  return { id: folder.id, label: folder.label, createdOn: folder.createdOn };
 }
 
 export async function createFolderHandler(
@@ -146,7 +146,7 @@ export async function listDocumentsHandler(
   }
 
   return {
-    data: folder.documents.map((d) => ({ id: d.id, label: d.label })),
+    data: folder.documents.map((d) => ({ id: d.id, label: d.label, createdOn: d.createdOn })),
   };
 }
 
