@@ -1,0 +1,73 @@
+{
+  "policies": [
+    {
+      "handler": {
+        "export": "ApiKeyInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "allowUnauthenticatedRequests": false,
+          "cacheTtlSeconds": 60
+        }
+      },
+      "name": "api-key-inbound",
+      "policyType": "api-key-inbound"
+    },
+    {
+      "handler": {
+        "export": "OktaFGAAuthZInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "region": "us1",
+          "storeId": "$env(FGA_STORE_ID)",
+          "authorizationModelId": "$env(FGA_MODEL_ID)",
+          "credentials": {
+            "clientId": "$env(FGA_CLIENT_ID)",
+            "clientSecret": "$env(FGA_CLIENT_SECRET)"
+          }
+        }
+      },
+      "name": "okta-fga-authz-inbound",
+      "policyType": "okta-fga-authz-inbound"
+    },
+    {
+      "name": "fga-document-editor",
+      "policyType": "custom-code-inbound",
+      "handler": {
+        "export": "documentEditor",
+        "module": "$import(./modules/fga-checks)"
+      }
+    },
+    {
+      "name": "fga-document-viewer",
+      "policyType": "custom-code-inbound",
+      "handler": {
+        "export": "documentViewer",
+        "module": "$import(./modules/fga-checks)"
+      }
+    },
+    {
+      "name": "fga-folder-editor",
+      "policyType": "custom-code-inbound",
+      "handler": {
+        "export": "folderEditor",
+        "module": "$import(./modules/fga-checks)"
+      }
+    },
+    {
+      "name": "fga-folder-viewer",
+      "policyType": "custom-code-inbound",
+      "handler": {
+        "export": "folderViewer",
+        "module": "$import(./modules/fga-checks)"
+      }
+    },
+    {
+      "name": "fga-org-admin",
+      "policyType": "custom-code-inbound",
+      "handler": {
+        "export": "orgAdmin",
+        "module": "$import(./modules/fga-checks)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My Zuplo API"
+  },
+  "paths": {
+    "/folders": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "List Folders",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "listFoldersHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-org-admin",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "1b775463-da68-4539-a911-0606c6893c6a"
+      },
+      "post": {
+        "summary": "Create Folder",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createFolderHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-org-admin",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "605172f6-13a0-43c5-9765-d73da380c208"
+      }
+    },
+    "/folders/{folderId}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "View Folder",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "getFolderHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-folder-viewer",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "525860ec-67f5-4d0d-bb3b-cecb4bd45829"
+      },
+      "delete": {
+        "summary": "Delete Folder",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "deleteFolderHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-folder-editor",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "0fa8d84b-4488-4946-8cec-0b88fecda643"
+      },
+      "patch": {
+        "summary": "Update Folder",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createFolderHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-folder-editor",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "5acfe8ec-99d5-4346-b786-b177ebe36d9a"
+      }
+    },
+    "/folders/{folderId}/documents/{docId}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Get Document",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "getDocumentHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-document-viewer",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "b7a12e72-37ea-4d79-8e5c-2d686d423a15"
+      },
+      "delete": {
+        "summary": "Delete Document",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "deleteDocumentHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-document-editor",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "c5513a8b-83c1-4422-9660-6694e5f9ee9a"
+      },
+      "patch": {
+        "summary": "Update Document",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createDocumentHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-document-editor",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "bd999144-24c4-438f-b17c-d5bcbd993839"
+      }
+    },
+    "/folders/{folderId}/documents": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "List Documents",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "listDocumentsHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-folder-viewer",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "820a9402-c710-4916-9ac3-7624d9cc9b49"
+      },
+      "post": {
+        "summary": "Create Document",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "createDocumentHandler",
+            "module": "$import(./modules/mocks)",
+            "options": {}
+          },
+          "policies": {
+            "inbound": [
+              "api-key-inbound",
+              "fga-folder-editor",
+              "okta-fga-authz-inbound"
+            ]
+          }
+        },
+        "operationId": "480d6bda-2cf1-42bb-b59c-0b1755fb8ae0"
+      }
+    }
+  }
+}
